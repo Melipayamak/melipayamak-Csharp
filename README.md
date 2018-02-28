@@ -21,7 +21,7 @@
 
 </div>
 
-<p><a href="http://api.payamak-panel.com/post/Send.asmx">api.payamak-panel.com/post/Send.asmx</a></p>
+<a href="http://api.payamak-panel.com/post/Send.asmx">api.payamak-panel.com/post/Send.asmx</a>
 
 
 <div dir='rtl'>
@@ -30,5 +30,13 @@
 
 </div>
 
-<p><a href="http://api.payamak-panel.com/post/receive.asmx">api.payamak-panel.com/post/receive.asmx</a></p>
+<a href="http://api.payamak-panel.com/post/receive.asmx">api.payamak-panel.com/post/receive.asmx</a>
 
+
+<div dir='rtl'>
+  
+#### وب سرویس مدیریت contact
+
+</div>
+
+<a href="http://api.payamak-panel.com/post/contacts.asmx">api.payamak-panel.com/post/contacts.asmx</a>
