@@ -11,7 +11,7 @@
 
 [**ثبت نام به همراه 500 پیامک رایگان اولیه تست وبسرویس**](http://www.melipayamak.com/)
 
-<p>پس از ثبت نام، وب سرویس‌های ملی پیامک را از طریق آدرسهای زیر به عنوان **Service Reference** به پروژه خود اضافه کنید :.</p>
+پس از ثبت نام، وب سرویس‌های ملی پیامک را از طریق آدرسهای زیر به عنوان **Service Reference** به پروژه خود اضافه کنید.
 
 </div>
 
@@ -21,7 +21,7 @@
 
 </div>
 
-<a href="http://api.payamak-panel.com/post/Send.asmx">api.payamak-panel.com/post/Send.asmx</a>
+[api.payamak-panel.com/post/Send.asmx](http://api.payamak-panel.com/post/Send.asmx)
 
 
 <div dir='rtl'>
@@ -30,7 +30,7 @@
 
 </div>
 
-<a href="http://api.payamak-panel.com/post/receive.asmx">api.payamak-panel.com/post/receive.asmx</a>
+[api.payamak-panel.com/post/receive.asmx](http://api.payamak-panel.com/post/receive.asmx)
 
 
 <div dir='rtl'>
@@ -39,8 +39,9 @@
 
 </div>
 
-<p><a href="http://api.payamak-panel.com/post/contacts.asmx">api.payamak-panel.com/post/contacts.asmx</a></p>
-<a href="http://api.payamak-panel.com/post/Actions.asmx">api.payamak-panel.com/post/Actions.asmx</a>
+[api.payamak-panel.com/post/contacts.asmx](http://api.payamak-panel.com/post/contacts.asmx)
+
+[api.payamak-panel.com/post/Actions.asmx](http://api.payamak-panel.com/post/Actions.asmx)
 
 <div dir='rtl'>
   
