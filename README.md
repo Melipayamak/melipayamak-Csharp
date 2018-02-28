@@ -77,3 +77,20 @@
 </div>
 
 > [api.payamak-panel.com/post/Voice.asmx](http://api.payamak-panel.com/post/Voice.asmx)
+
+<div dir='rtl'>
+#### نحوه استفاده
+
+نمونه کد برای ارسال پیامک
+</div>
+
+
+```
+const string username = "username";
+const string password = "password";
+const string from = "5000...";
+const string to = "09123456789";
+const string text = "تست وب سرویس ملی پیامک";
+SendSoapClient client = new SendSoapClient();
+client.SendSimpleSMS(username, password, new string[] { to }, from, text, false);
+```
