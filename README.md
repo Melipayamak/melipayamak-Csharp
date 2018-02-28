@@ -23,3 +23,12 @@
 
 <p><a href="http://api.payamak-panel.com/post/Send.asmx">api.payamak-panel.com/post/Send.asmx</a></p>
 
+
+<div dir='rtl'>
+  
+#### وب سرویس دریافت پیام
+
+</div>
+
+<p><a href="http://api.payamak-panel.com/post/receive.asmx">api.payamak-panel.com/post/receive.asmx</a></p>
+
