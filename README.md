@@ -102,6 +102,23 @@ client.SendSimpleSMS(username, password, new string[] { to }, from, text, false)
 از آنجا که وب سرویس ملی پیامک تنها محدود به ارسال پیامک نیست شما از طریق زیر میتوانید به وب سرویس ها دسترسی کامل داشته باشید:
 </div>
 
+```js
+// وب سرویس پیامک
+SendRestClient restClient = new SendRestClient();
+SendSoapClient soapClient = new SendSoapClient();
+// وب سرویس تیکت پشتیبانی
+TicketsSoapClient ticketClient = new TicketsSoapClient();
+// وب سرویس برای مدیریت کامل  ارسال انبوه پیامک
+ActionsSoapClient actionClient = new ActionsSoapClient();
+//وب سرویس کاربران
+UsersSoapClient usersClient = new UsersSoapClient();
+//وب سرویس دفترچه تلفن
+ContactsSoapClient contactsClient = new ContactsSoapClient();
+//وب سرویس زمان بندی
+ScheduleSoapClient scheduleClient = new ScheduleSoapClient();
+//وب سرویس پیام صوتی
+VoiceSoapClient voiceClient = new VoiceSoapClient();
+```
 
 <div dir='rtl'>
   
