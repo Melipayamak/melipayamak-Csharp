@@ -221,12 +221,12 @@ receiveSoapClient.RemoveMessages2(username, password, location, msgIds);
 
 #### ارسال زماندار
 ```js
-smsSoap.sendSchedule(to,from,text,isflash,scheduleDateTime,period);
+scheduleSoapClient.AddSchedule(username, password, to, from, text, isflash, scheduleDateTime, period);
 ```
 
 #### ارسال زماندار متناظر
 ```js
-smsSoap.sendMultipleSchedule(to,from,text,isflash,scheduleDateTime,period);
+scheduleSoapClient.AddMultipleSchedule(username, password, to[], from, text[], isflash, scheduleDateTime[], period);
 ```
 
 
@@ -260,7 +260,11 @@ voiceSoapClient.SendSMSWithSpeechTextBySchduleDate(username, password, smsBody, 
 ```js
 voiceSoapClient.GetSendSMSWithSpeechTextStatus(username, password, recId);
 ```
+<div dir='rtl'>
+  
 ### وب سرویس ارسال انبوه/منطقه ای
+
+</div>
 
 #### دریافت شناسه شاخه های بانک شماره
 ```js
@@ -330,7 +334,11 @@ actionSoapClient.SendMultipleSMS(username, password, to[], from, text[], isflash
 ```js
 actionSoapClient.UpdateBulkDelivery(username, password, bulkId);
 ```
+<div dir='rtl'>
+  
 ### وب سرویس تیکت
+
+</div>
 
 #### ثبت تیکت جدید
 ```js
@@ -363,8 +371,11 @@ ticketSoapClient.GetSentTicketsCount(username, password, ticketType);
 ```js
 ticketSoapClient.ResponseTicket(username, password, ticketId, type, content, alertWithSms);
 ```
-
+<div dir='rtl'>
+  
 ### وب سرویس دفترچه تلفن
+
+</div>
 
 #### اضافه کردن گروه جدید
 ```js
@@ -404,9 +415,11 @@ contactsSoapClient.RemoveContact(username, password, mobilenumber);
 contactsSoapClient.GetContactEvents(username, password, contactId);
 ```
 
-
+<div dir='rtl'>
 
 ### وب سرویس کاربران
+
+</div>
 
 #### ثبت فیش واریزی
 ```js
