@@ -304,7 +304,7 @@ actionSoapClient.GetBulkReceptions(username, password, bulkId, fromRows);
 
 #### تعیین وضعیت ارسال 
 ```js
-actionSoapClient.getBulkStatus(username, password, bulkId, sent, failed, status);
+actionSoapClient.GetBulkStatus(username, password, bulkId, sent, failed, status);
 ```
 
 #### تعداد ارسال های امروز
