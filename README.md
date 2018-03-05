@@ -172,7 +172,6 @@ soapClient.GetDeliveries(recIds[], username, password);
 ```js
 restClient.getMessages(location, index, count, from);
 soapClient.getMessages(username, password, location, from, index, count);
-soapClient.getMessagesStr(location,index,count,from);
 // جهت دریافت به صورت رشته ای
 receiveSoapClient.GetMessagesByDate(username, password, location, from, index, count, dateFrom, dateTo);
 //جهت دریافت بر اساس تاریخ
