@@ -175,7 +175,7 @@ soapClient.getMessages(username, password, location, from, index, count);
 // جهت دریافت به صورت رشته ای
 receiveSoapClient.GetMessagesByDate(username, password, location, from, index, count, dateFrom, dateTo);
 //جهت دریافت بر اساس تاریخ
-receiveSoapClient.getUsersMessagesByDate(username, password, location, from, index, count, dateFrom, dateTo);
+receiveSoapClient.GetUsersMessagesByDate(username, password, location, from, index, count, dateFrom, dateTo);
 // جهت دریافت پیام های کاربران بر اساس تاریخ 
 ```
 
