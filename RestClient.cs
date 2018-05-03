@@ -21,8 +21,8 @@ class RestClient : NSObject, NSURLConnectionDelegate, NSURLConnectionDataDelegat
     let getBasePriceOp: String = "GetBasePrice"
     let getUserNumbersOp: String = "GetUserNumbers"
     
-    let UserName: String;
-    let Password: String;
+    let UserName: String
+    let Password: String
     
     init(user: String, pass: String){
         self.UserName = user
