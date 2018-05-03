@@ -1,208 +1,155 @@
-//
-//  RestClient.swift
-//  MeliPayamak
-//
-//  Created by Amirhossein Mehrvarzi on 4/25/18.
-//  Copyright © 2018 MeliPayamak. All rights reserved.
-//
-
-import Foundation
-
-class RestClient : NSObject, NSURLConnectionDelegate, NSURLConnectionDataDelegate
+public class RestClient
 {
-    var mutableData:NSMutableData  = NSMutableData()
-    
-    let endpoint: String  = "https://rest.payamak-panel.com/api/SendSMS/"
-    let sendOp: String = "SendSMS"
-    
-    let getDeliveryOp: String = "GetDeliveries2"
-    let getMessagesOp: String = "GetMessages"
-    let getCreditOp: String = "GetCredit"
-    let getBasePriceOp: String = "GetBasePrice"
-    let getUserNumbersOp: String = "GetUserNumbers"
-    
-    let UserName: String
-    let Password: String
-    
-    init(user: String, pass: String){
-        self.UserName = user
-        self.Password = pass
-    }
-    
-    func Send(to: String, from: String, message: String, isflash: Bool)
+    private const string endpoint = "https://rest.payamak-panel.com/api/SendSMS/";
+    private const string sendOp = "SendSMS";
+
+    private const string getDeliveryOp = "GetDeliveries2";
+    private const string getMessagesOp = "GetMessages";
+    private const string getCreditOp = "GetCredit";
+    private const string getBasePriceOp = "GetBasePrice";
+    private const string getUserNumbersOp = "GetUserNumbers";
+
+    private string UserName;
+    private string Password;
+
+    public RestClient(string username, string password)
     {
-
-    let values = "username=\(self.UserName)&password=\(self.Password)&to=\(to)&from=\(from)&text=\(message)&isFlash=\(isflash.description)"
-    
-    let url = URL(string: endpoint + sendOp)
-    
-    let theRequest = NSMutableURLRequest(url: url!)
-    
-    theRequest.addValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
-    
-    theRequest.httpMethod = "POST"
-    theRequest.httpBody = values.data(using: String.Encoding.utf8, allowLossyConversion: false)
-    let connection = NSURLConnection(request: theRequest as URLRequest, delegate: self, startImmediately: true)
-    
-    connection!.start()
-
+        UserName = username;
+        Password = password;
     }
 
-
-    func GetDelivery(Int32 recid)
+    public RestResponse Send(string to, string from, string message, bool isflash)
     {
+        var values = new Dictionary<string, string>
+        {
+            { "username", UserName },
+            { "password", Password },
+            { "to" , to },
+            { "from" , from },
+            { "text" , message },
+            { "isFlash" , isflash.ToString() }
+        };
 
-    let values = "username=\(self.UserName)&password=\(self.Password)&recID=\(recid)"
-    
-    let url = URL(string: endpoint + getDeliveryOp)
-    
-    let theRequest = NSMutableURLRequest(url: url!)
-    
-    theRequest.addValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
-    
-    theRequest.httpMethod = "POST"
-    theRequest.httpBody = values.data(using: String.Encoding.utf8, allowLossyConversion: false)
-    let connection = NSURLConnection(request: theRequest as URLRequest, delegate: self, startImmediately: true)
-    
-    connection!.start()
+        var content = new FormUrlEncodedContent(values);
 
+        using (var httpClient = new HttpClient())
+        {
+            var response = httpClient.PostAsync(endpoint + sendOp, content).Result;
+            var responseString = response.Content.ReadAsStringAsync().Result;
+
+            return JsonConvert.DeserializeObject<RestResponse>(responseString);
+        }
     }
-    
-    //
-    func GetMessages(Int location, String from, String index, Int count)
+
+
+    public RestResponse GetDelivery(long recid)
     {
+        var values = new Dictionary<string, string>
+        {
+            { "UserName", UserName },
+            { "PassWord", Password },
+            { "recID" , recid.ToString() },
+        };
 
-    let values = "username=\(self.UserName)&password=\(self.Password)&Location=\(location)&From=\(from)&Index=\(index)&Count=\(count)"
-    
-    let url = URL(string: endpoint + getMessagesOp)
-    
-    let theRequest = NSMutableURLRequest(url: url!)
-    
-    theRequest.addValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
-    
-    theRequest.httpMethod = "POST"
-    theRequest.httpBody = values.data(using: String.Encoding.utf8, allowLossyConversion: false)
-    let connection = NSURLConnection(request: theRequest as URLRequest, delegate: self, startImmediately: true)
-    
-    connection!.start()
+        var content = new FormUrlEncodedContent(values);
 
+        using (var httpClient = new HttpClient())
+        {
+            var response = httpClient.PostAsync(endpoint + getDeliveryOp, content).Result;
+            var responseString = response.Content.ReadAsStringAsync().Result;
+
+            return JsonConvert.DeserializeObject<RestResponse>(responseString);
+        }
     }
 
-    func GetCredit()
+
+    public RestResponse GetMessages(int location, string from, string index, int count)
     {
+        var values = new Dictionary<string, string>
+        {
+            { "UserName", UserName },
+            { "PassWord", Password },
+            { "Location" , location.ToString() },
+            { "From" , from },
+            { "Index" , index },
+            { "Count" , count.ToString() }
+        };
 
-    let values = "username=\(self.UserName)&password=\(self.Password)"
-    
-    let url = URL(string: endpoint + getCreditOp)
-    
-    let theRequest = NSMutableURLRequest(url: url!)
-    
-    theRequest.addValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
-    
-    theRequest.httpMethod = "POST"
-    theRequest.httpBody = values.data(using: String.Encoding.utf8, allowLossyConversion: false)
-    let connection = NSURLConnection(request: theRequest as URLRequest, delegate: self, startImmediately: true)
-    
-    connection!.start()
+        var content = new FormUrlEncodedContent(values);
 
+        using (var httpClient = new HttpClient())
+        {
+            var response = httpClient.PostAsync(endpoint + getMessagesOp, content).Result;
+            var responseString = response.Content.ReadAsStringAsync().Result;
+
+            return JsonConvert.DeserializeObject<RestResponse>(responseString);
+        }
     }
 
-    func GetBasePrice()
+    public RestResponse GetCredit()
     {
+        var values = new Dictionary<string, string>
+        {
+            { "UserName", UserName },
+            { "PassWord", Password },
+        };
 
-    let values = "username=\(self.UserName)&password=\(self.Password)"
-    
-    let url = URL(string: endpoint + getBasePriceOp)
-    
-    let theRequest = NSMutableURLRequest(url: url!)
-    
-    theRequest.addValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
-    
-    theRequest.httpMethod = "POST"
-    theRequest.httpBody = values.data(using: String.Encoding.utf8, allowLossyConversion: false)
-    let connection = NSURLConnection(request: theRequest as URLRequest, delegate: self, startImmediately: true)
-    
-    connection!.start()
+        var content = new FormUrlEncodedContent(values);
 
+        using (var httpClient = new HttpClient())
+        {
+            var response = httpClient.PostAsync(endpoint + getCreditOp, content).Result;
+            var responseString = response.Content.ReadAsStringAsync().Result;
+
+            return JsonConvert.DeserializeObject<RestResponse>(responseString);
+        }
     }
 
-    func GetUserNumbers()
+    public RestResponse GetBasePrice()
     {
+        var values = new Dictionary<string, string>
+        {
+            { "UserName", UserName },
+            { "PassWord", Password },
+        };
 
-    let values = "username=\(self.UserName)&password=\(self.Password)"
-    
-    let url = URL(string: endpoint + getUserNumbersOp)
-    
-    let theRequest = NSMutableURLRequest(url: url!)
-    
-    theRequest.addValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
-    
-    theRequest.httpMethod = "POST"
-    theRequest.httpBody = values.data(using: String.Encoding.utf8, allowLossyConversion: false)
-    let connection = NSURLConnection(request: theRequest as URLRequest, delegate: self, startImmediately: true)
-    
-    connection!.start()
+        var content = new FormUrlEncodedContent(values);
 
+        using (var httpClient = new HttpClient())
+        {
+            var response = httpClient.PostAsync(endpoint + getBasePriceOp, content).Result;
+            var responseString = response.Content.ReadAsStringAsync().Result;
+
+            return JsonConvert.DeserializeObject<RestResponse>(responseString);
+        }
     }
 
+    public RestResponse GetUserNumbers()
+    {
+        var values = new Dictionary<string, string>
+        {
+            { "UserName", UserName },
+            { "PassWord", Password },
+        };
 
+        var content = new FormUrlEncodedContent(values);
 
-    
-    // NSURLConnectionDelegate
-    
-    func connection(_ connection: NSURLConnection, didFailWithError error: Error) {
-        print("connection error = \(error)")
+        using (var httpClient = new HttpClient())
+        {
+            var response = httpClient.PostAsync(endpoint + getUserNumbersOp, content).Result;
+            var responseString = response.Content.ReadAsStringAsync().Result;
+
+            return JsonConvert.DeserializeObject<RestResponse>(responseString);
+        }
     }
-    
-    func connection(_ connection: NSURLConnection, didReceive response: URLResponse) {
-        mutableData = NSMutableData()
-    }
-    
-    
-    func connection(_ connection: NSURLConnection, didReceive data: Data) {
-        self.mutableData.append(data)
-    }
-    
-    
-    func connectionDidFinishLoading(_ connection: NSURLConnection) {
-       
-        let response : RestResponse = RestResponse(mutableData: mutableData)
-        print("status is : \(response.StrRetStatus)")
-       
-    }
-    
-    
+
 }
 
 
 //response class
-class RestResponse : NSObject
+public class RestResponse
 {
-    var Value: String = ""
-    var RetStatus: String = ""
-    var StrRetStatus: String = ""
-    
-    
-    init(mutableData: NSData) {
-        super.init()
-        
-        let JSONDictionary = try? JSONSerialization.jsonObject(with: mutableData as Data, options: []) as! Dictionary<String, AnyObject>
-        
-        // Loop
-        for (key, value) in JSONDictionary! {
-            let keyName = key as String
-            
-            let keyValue: String = String(describing: value)
-            
-            // If property exists
-            if (self.responds(to: NSSelectorFromString(keyName))) {
-                self.setValue(keyValue, forKey: keyName)
-            }
-        }
-        // Or you can do it with using
-        // self.setValuesForKeysWithDictionary(JSONDictionary)
-        // instead of loop method above
-    }
-    
-    
+    public string Value { get; set; }
+    public int RetStatus { get; set; }
+    public string StrRetStatus { get; set; }
 }
