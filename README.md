@@ -233,7 +233,7 @@ scheduleSoapClient.AddMultipleSchedule(username, password, to[], from, text[], i
 
 #### ارسال سررسید
 ```js
-scheduleSoapClient.AddNewUsance(username, password, to, from, text, isflash, scheduleStartDateTime, countRepeat, scheduleEndDateTime, periodType);
+scheduleSoapClient.AddUsance(username, password, to, from, text, isflash, scheduleStartDateTime, repeatAfterDays, scheduleEndDateTime);
 ```
 
 #### مشاهده وضعیت ارسال زماندار
