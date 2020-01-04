@@ -19,16 +19,6 @@
 
 <div dir='rtl'>
   
-شما می توانید از طریق [Nuget](https://www.nuget.org/packages/Melipayamak.RestClient/) نیز وب سرویس ملی پیامک را به پروزه خود اضافه نمایید :
-  
-</div>
-
-```
-Install-Package Melipayamak.RestClient -Version 1.0.0
-```
-
-<div dir='rtl'>
-  
 #### وب سرویس ارسال پیام
 
 </div>
@@ -89,6 +79,17 @@ Install-Package Melipayamak.RestClient -Version 1.0.0
 </div>
 
 > [api.payamak-panel.com/post/Voice.asmx](http://api.payamak-panel.com/post/Voice.asmx)
+
+<div dir='rtl'>
+  
+شما می توانید از طریق [Nuget](https://www.nuget.org/packages/Melipayamak.RestClient/) نیز وب سرویس ملی پیامک را به پروزه خود اضافه نمایید :
+  
+</div>
+
+```
+Install-Package Melipayamak.RestClient -Version 1.0.0
+```
+
 
 <div dir='rtl'>
   
